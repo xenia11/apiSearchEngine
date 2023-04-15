@@ -1,0 +1,23 @@
+@use "./mixins/mixins.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+@import "./components/BookCard/BookCard.module.scss";
+@import "./containers/BookList/BookList.module.scss";
+
+#root {
+    color: black;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+.App {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 30px 50px 20px 50px;
+    width: 100%;
+
+    @include mixins.mobile {
+        margin: 30px 20px 20px 20px;
+    }
+}

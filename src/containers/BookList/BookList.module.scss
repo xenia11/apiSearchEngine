@@ -1,0 +1,37 @@
+@use "../../mixins/mixins.scss";
+
+$full-width: 100vw;
+$width-eighty: 80vw;
+$display-three: 1fr 1fr 1fr;
+
+.BookList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    align-content: space-around;
+    margin: 15px 30px 15px 15px;
+    width: $full-width;
+
+    @include mixins.mobile {
+        width: $width-eighty;
+        grid-template-columns: 1fr;
+    }
+    @include mixins.tablet {
+        width: $full-width;
+        grid-template-columns: 1fr 1fr;
+    }
+    @include mixins.laptop {
+        grid-template-columns: $display-three;
+        width: $full-width;
+    }
+    @include mixins.desktop {
+        grid-template-columns: $display-three;
+        width: 100vw;
+    }
+    @include mixins.tv {
+        width: $width-eighty;
+    }
+    @include mixins.xxl {
+        width: $width-eighty;
+    }
+}

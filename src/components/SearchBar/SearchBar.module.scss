@@ -1,0 +1,106 @@
+@use "../../mixins/mixins.scss";
+
+$primary-border-color: #929090;
+$primary-white-color: #ecf0f1;
+$border: 2px solid $primary-border-color;
+
+.SearchBar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    background-color: $primary-white-color;
+    border-radius: 5px;
+    width: 50vw;
+    height: 90px;
+    margin-left: 15px;
+    font-size: 20px;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 50px;
+
+    @include mixins.mobile {
+        width: 90vw;
+        margin-bottom: 30px;
+        height: 70px;
+        margin-left: 10px;
+        padding: 4px;
+        font-size: 14px;
+        gap: 0;
+    }
+    @include mixins.tablet {
+        width: 75vw;
+        height: 70px;
+        font-size: 16px;
+    }
+    @include mixins.laptop {
+        width: 70vw;
+        height: 84px;
+        font-size: 19px;
+    }
+    @include mixins.desktop {
+        width: 55vw;
+    }
+
+    &_Input {
+        width: 40vw;
+        height: 50px;
+        border: 1px solid darkgray;
+        background-color: white;
+        margin-bottom: 0;
+
+        &:focus {
+            outline-width: 2px;
+            outline-color: $primary-border-color;
+        }
+
+        @include mixins.mobile {
+            width: 60vw;
+            height: 40px;
+        }
+        @include mixins.tablet {
+            width: 53vw;
+            height: 42px;
+        }
+        @include mixins.laptop {
+            width: 45vw;
+            height: 46px;
+        }
+    }
+
+    &_Btn {
+        height: 42px;
+        width: 100px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        border: $border;
+        background: #a2a2a2;
+        color: white;
+        margin-bottom: 0;
+
+        &:hover {
+            border: $border;
+            background: $primary-white-color;
+            color: $primary-border-color;
+            box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        @include mixins.mobile {
+            height: 33px;
+            width: 70px;
+        }
+        @include mixins.tablet {
+            height: 37px;
+            width: 90px;
+        }
+        @include mixins.laptop {
+            height: 40px;
+            width: 98px;
+        }
+        @include mixins.desktop {
+            margin-right: 10px;
+        }
+    }
+}

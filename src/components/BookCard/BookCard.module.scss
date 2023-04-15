@@ -1,0 +1,164 @@
+@use "../../mixins/mixins.scss";
+
+@mixin full-width-no-gap {
+    width: 100%;
+    gap: 0;
+}
+@mixin primary-display {
+    display: flex;
+    flex-direction: row;
+}
+
+$full-width: 100%;
+$fit-content-height: fit-content;
+$border-style: 2px solid;
+
+.Card {
+    @include primary-display;
+    flex-wrap: nowrap;
+    border: $border-style #e4e3e3;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    gap: 10px;
+    width: 100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    @include mixins.mobile {
+        height: 211px;
+    }
+    @include mixins.tablet {
+        height: 210px;
+    }
+    @include mixins.laptop {
+        height: 250px;
+    }
+    @include mixins.desktop {
+        height: 260px;
+    }
+    @include mixins.tv {
+        height: 290px;
+    }
+    @include mixins.xxl {
+        height: 280px;
+    }
+
+    &_FirstHalf {
+        border: none;
+        width: 40%;
+        margin: 0;
+        box-shadow: none;
+
+        &-Img {
+            width: $full-width;
+            height: 99%;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+    &_SecondHalf {
+        box-shadow: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 60%;
+        gap: 0px;
+        flex-wrap: wrap;
+        margin-right: 5px;
+
+        &-Title {
+            @include full-width-no-gap;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            height: $fit-content-height;
+            @include mixins.mobile {
+                font-size: 15px;
+            }
+            @include mixins.tablet {
+                font-size: 17px;
+            }
+        }
+        &-ParaAuthor {
+            @include full-width-no-gap;
+            font-size: 14px;
+            height: $fit-content-height;
+            margin-bottom: 0;
+            @include mixins.mobile {
+                font-size: 11px;
+            }
+            @include mixins.tablet {
+                font-size: 12px;
+            }
+        }
+        &-ParaPublisher {
+            width: 100%;
+            font-size: 12px;
+            color: gray;
+            height: $fit-content-height;
+            @include mixins.mobile {
+                font-size: 9px;
+            }
+            @include mixins.tablet {
+                font-size: 10px;
+            }
+        }
+        &-Button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            border-radius: 7px;
+            border: $border-style lightgrey;
+            cursor: pointer;
+            width: 96px;
+            margin-top: auto;
+            margin-bottom: 5px;
+            height: $fit-content-height;
+
+            &:hover {
+                border: $border-style #929090;
+                background: #a2a2a2;
+                color: white;
+            }
+            @include mixins.mobile {
+                font-size: 13px;
+                width: 80px;
+            }
+            @include mixins.tablet {
+                font-size: 13px;
+                width: 90px;
+            }
+        }
+        &-CategoryDiv {
+            @include primary-display;
+            flex-wrap: wrap;
+            width: $full-width;
+            height: $fit-content-height;
+
+            &-Para {
+                font-size: 10px;
+                border: $border-style #9fb7b9;
+                border-radius: 19px;
+                padding: 4px;
+                font-weight: bold;
+                background: #afd9ea;
+                width: fit-content;
+                text-align: center;
+                margin-bottom: 8px;
+                @include mixins.mobile {
+                    font-size: 8px;
+                }
+                @include mixins.tablet {
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+}

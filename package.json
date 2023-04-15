@@ -1,0 +1,38 @@
+{
+    "name": "apisearchengine",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "test": "jest",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.0-alpha3",
+        "jest-fetch-mock": "^3.0.3",
+        "node-fetch": "^3.3.1",
+        "prop-types": "^15.8.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.61.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.21.4",
+        "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+        "@babel/preset-env": "^7.21.4",
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "@vitejs/plugin-react": "^3.1.0",
+        "babel-jest": "^29.5.0",
+        "css-loader": "^6.7.3",
+        "jest": "^29.5.0",
+        "sass-loader": "^13.2.2",
+        "vite": "^4.2.0"
+    },
+    "main": "vite.config.js",
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
