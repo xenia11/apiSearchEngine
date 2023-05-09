@@ -40,7 +40,7 @@ export const BookCard = ({ bookInfo, handleClick }) => {
     const [click, setClick] = useState(false);
 
     const clicked = () => {
-        handleClick(true, bookInfo);
+        handleClick(bookInfo);
         setClick(!click);
     };
 

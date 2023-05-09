@@ -3,21 +3,23 @@ import BookCard from "../../components/BookCard/BookCard";
 import PopUp from "../../components/PopUp/PopUp";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./BookList.module.scss";
+import closeIcon from "../../assets/x-button.png";
 
 const BookList = ({ books }) => {
-    const [cardClicked, setCardClick] = useState(false);
     const [isPopHidden, setPopHidden] = useState(true);
     const [openCard, setCardOpen] = useState("");
 
-    const handleClick = (click, book) => {
-        setCardClick(click);
+    const handleClick = (book) => {
         setCardOpen(book);
         setPopHidden(false);
     };
 
     const hidePop = () => {
         setPopHidden(true);
-        setCardClick(false);
+    };
+    const spanStyles = {
+        fontWeight: "bold",
+        marginRight: "5px",
     };
 
     return (
@@ -31,7 +33,23 @@ const BookList = ({ books }) => {
                     />
                 ))}
             </div>
-            {!isPopHidden && <PopUp card={openCard} handleHidden={hidePop} />}
+            {!isPopHidden && (
+                <PopUp handleHidden={hidePop} bookInfo={openCard.volumeInfo}>
+                    <p className={`${styles.PopUp} ${styles.PopUp_Para}`}>
+                        <span style={spanStyles}>Description: </span>
+                        {openCard?.volumeInfo?.description ??
+                            "No book description available"}
+                    </p>
+                    <p className={`${styles.PopUp} ${styles.PopUp_Para}`}>
+                        <span style={spanStyles}>Version: </span>
+                        {openCard?.volumeInfo?.contentVersion ?? ""}
+                    </p>
+                    <p className={`${styles.PopUp} ${styles.PopUp_Para}`}>
+                        <span style={spanStyles}>Pages:</span>{" "}
+                        {openCard?.volumeInfo?.pageCount ?? ""}
+                    </p>
+                </PopUp>
+            )}
         </div>
     );
 };

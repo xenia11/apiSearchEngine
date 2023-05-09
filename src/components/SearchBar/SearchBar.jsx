@@ -1,24 +1,19 @@
-import { useState } from "react";
+import { useRef } from "react";
 import styles from "./SearchBar.module.scss";
 
 const SearchBar = ({ onSubmit }) => {
-    const [search, setSearch] = useState("");
-
-    const handleChange = (event) => {
-        setSearch(event.target.value);
-    };
+    const searchRef = useRef(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(search);
+        onSubmit(searchRef.current.value);
     };
 
     return (
         <form className={styles.SearchBar} onSubmit={handleSubmit}>
             <input
                 className={`${styles.SearchBar} ${styles.SearchBar_Input}`}
-                value={search}
-                onChange={handleChange}
+                ref={searchRef}
                 type="text"
                 id="searchInput"
                 name="search"
